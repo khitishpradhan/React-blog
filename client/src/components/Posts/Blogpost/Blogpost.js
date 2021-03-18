@@ -14,13 +14,17 @@ import {
 import moment from "moment";
 
 import { getPost } from "../../../actions/post";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 
 import useStyles from "./styles";
 
 const Blogpost = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const location = useLocation();
+  // const [post, setPost] = useState();
+
+  const user = JSON.parse(localStorage.getItem("profile"));
 
   const { id } = useParams();
 
@@ -29,6 +33,10 @@ const Blogpost = () => {
   useEffect(() => {
     if (id && id !== "") dispatch(getPost(id));
   }, [id, dispatch]);
+
+  // useEffect(() => {
+  //   setPost(null);
+  // }, [location]);
 
   return (
     <Container maxWidth="lg" className={classes.container}>
@@ -42,7 +50,11 @@ const Blogpost = () => {
         />
       </Card>
       <CardContent className={classes.content}>
-        <Typography variant="h3" className={classes.title}>
+        <Typography
+          style={{ wordWrap: "break-word" }}
+          variant="h3"
+          className={classes.title}
+        >
           {post.title}
         </Typography>
         <div>
@@ -67,7 +79,7 @@ const Blogpost = () => {
               className={classes.creator}
             >
               <Avatar alt={post.creator} className={classes.avatar} srcSet="" />
-              <Typography variant="subtitle2">{post.creator}</Typography>
+              <Typography variant="subtitle2">{post.name}</Typography>
             </Box>
 
             <Typography variant="caption">
@@ -75,7 +87,9 @@ const Blogpost = () => {
             </Typography>
           </Box>
         </div>
-        <Typography variant="h5">{post.message}</Typography>
+        <Typography style={{ wordWrap: "break-word" }} variant="h5">
+          {post.message}
+        </Typography>
       </CardContent>
     </Container>
   );

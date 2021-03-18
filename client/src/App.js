@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { Container } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import BLogpost from "./components/Posts/Blogpost/Blogpost";
+import Auth from "./components/Auth/Auth";
 import { getPosts } from "./actions/posts";
 import useStyles from "./styles";
 
@@ -54,7 +56,9 @@ const App = () => {
             />
           )}
         />
+        <Route path="/auth" exact component={Auth} />
       </Container>
+      <Footer />
     </>
   );
 };

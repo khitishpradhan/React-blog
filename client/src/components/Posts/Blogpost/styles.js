@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
   container: {
     padding: 0,
     border: "1px black",
-    backgroundColor: "white",
+    width: 1000,
   },
   media: {
     height: 500,
@@ -39,5 +39,13 @@ export default makeStyles((theme) => ({
   },
   content: {
     padding: 50,
+  },
+  [theme.breakpoints.down("sm")]: {
+    content: {
+      padding: 0,
+    },
+    media: {
+      height: 200,
+    },
   },
 }));

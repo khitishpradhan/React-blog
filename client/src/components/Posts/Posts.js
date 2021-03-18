@@ -18,12 +18,12 @@ const Posts = ({ setCurrentId }) => {
           className={classes.container}
           container
           alignItems="center"
-          spacing={10}
+          justify="center"
+          direction="column"
+          spacing={2}
         >
           {posts.map((post, id) => (
-            <Grid key={id} item xs={12} sm={4}>
-              <Post post={post} setCurrentId={setCurrentId} />
-            </Grid>
+            <Post key={id} post={post} setCurrentId={setCurrentId} />
           ))}
         </Grid>
       )}

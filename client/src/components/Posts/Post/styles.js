@@ -27,7 +27,8 @@ export default makeStyles((theme) => ({
   },
   title: {
     width: "100%",
-    fontFamily: "san-serif",
+    fontFamily: "'Fredoka One', cursive",
+    wordWrap: "break-word",
   },
   post_content: {
     height: "100%",

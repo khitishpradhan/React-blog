@@ -8,7 +8,6 @@ export default makeStyles((theme) => ({
   },
   container: {
     padding: 0,
-    border: "1px black",
     width: 1000,
   },
   media: {
@@ -16,11 +15,15 @@ export default makeStyles((theme) => ({
   },
   title: {
     marginTop: 30,
+    wordWrap: "break-word",
+    fontFamily: "'Fredoka One', cursive",
   },
   tags: {
     margin: theme.spacing(0),
     marginRight: 10,
     marginTop: 20,
+    fontFamily: "'Barlow Semi Condensed', sans-serif",
+    fontWeight: 1000,
   },
   Toolbar: {
     width: 300,
@@ -46,6 +49,10 @@ export default makeStyles((theme) => ({
     },
     media: {
       height: 200,
+    },
+    container: {
+      padding: 0,
+      width: "inherit",
     },
   },
 }));

@@ -12,16 +12,15 @@ import {
   Box,
   Menu,
   MenuItem,
+  Tooltip,
 } from "@material-ui/core/";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import ThumbUpAltOutlined from "@material-ui/icons/ThumbUpAltOutlined";
+
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ShareIcon from "@material-ui/icons/Share";
 
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-import DeleteIcon from "@material-ui/icons/Delete";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import moment from "moment";
@@ -74,7 +73,6 @@ const Post = ({ post, setCurrentId }) => {
     return (
       <>
         <FavoriteBorderIcon fontSize="small" />
-        &nbsp;Like
       </>
     );
   };
@@ -148,10 +146,7 @@ const Post = ({ post, setCurrentId }) => {
             </Typography>
             <Typography
               key={post._id}
-              style={{ wordWrap: "break-word" }}
               gutterBottom
-              variant="h5"
-              component="h2"
               className={classes.title}
               onClick={() => handleClick(post._id)}
             >
@@ -257,17 +252,27 @@ const Post = ({ post, setCurrentId }) => {
           <Box>
             <CardActions className={classes.cardActions}>
               <Box style={{ display: "flex", justifyContent: "space-between" }}>
-                <Button
-                  size="small"
-                  color="primary"
-                  disabled={!user?.result}
-                  onClick={() => dispatch(likePost(post._id))}
+                <Tooltip
+                  title="You're not logged in"
+                  disableHoverListener={user?.result}
+                  disableTouchListener={user?.result}
+                  disableFocusListener={user?.result}
                 >
-                  <Likes />
-                </Button>
-                <Button size="small" color="primary" disabled>
+                  <span>
+                    <Button
+                      size="small"
+                      color="primary"
+                      disabled={!user?.result}
+                      onClick={() => dispatch(likePost(post._id))}
+                    >
+                      <Likes />
+                    </Button>
+                  </span>
+                </Tooltip>
+
+                {/* <Button size="small" color="primary" disabled>
                   <ShareIcon />
-                </Button>
+                </Button> */}
               </Box>
 
               <Box>

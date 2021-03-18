@@ -20,12 +20,9 @@ export default makeStyles((theme) => ({
   profile: {
     marginLeft: "10px",
   },
-  SignIn: {
-    marginLeft: "10px",
-  },
-  purple: {
-    color: theme.palette.getContrastText(deepPurple[500]),
-    backgroundColor: deepPurple[500],
+  avatar: {
+    color: "white",
+    backgroundColor: "rgb(233, 8, 52)",
   },
 
   [theme.breakpoints.down("sm")]: {

@@ -24,6 +24,10 @@ const Navbar = () => {
   const history = useHistory();
   const classes = useStyles();
 
+  console.log(location);
+
+  const path = location.pathname;
+
   const [anchorEl, setAnchorEl] = useState(null);
 
   const logout = () => {
@@ -72,13 +76,24 @@ const Navbar = () => {
       <Toolbar className={classes.tool}>
         <img className={classes.homeButton} src={logo} onClick={handleHome} />
         <Typography className={classes.heading} variant="h6"></Typography>
-        <Button variant="contained" color="secondary" onClick={handleCreate}>
-          Write a post
-        </Button>
+        {user && (
+          <Button
+            variant="contained"
+            style={{
+              color: "white",
+              backgroundColor: "rgb(51, 79, 79)",
+            }}
+            onClick={handleCreate}
+            disableElevation
+          >
+            Write a post
+          </Button>
+        )}
+
         {user ? (
           <div className={classes.profile}>
             <Avatar
-              className={classes.purple}
+              className={classes.avatar}
               alt={user.result.name}
               src={user.result.imageUrl}
               onClick={handleClick}
@@ -104,7 +119,12 @@ const Navbar = () => {
             component={Link}
             to="/auth"
             variant="contained"
-            color="primary"
+            disableElevation
+            style={{
+              backgroundColor: "rgb(233, 8, 52)",
+              color: "white",
+              marginLeft: "10px",
+            }}
           >
             Sign In
           </Button>

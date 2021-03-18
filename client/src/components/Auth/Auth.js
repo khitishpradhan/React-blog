@@ -149,7 +149,7 @@ const SignUp = () => {
             onFailure={googleError}
             cookiePolicy="single_host_origin"
           />
-          <Grid container justify="flex-end">
+          <Grid container justify="center">
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignup

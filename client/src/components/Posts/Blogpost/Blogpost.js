@@ -39,7 +39,7 @@ const Blogpost = () => {
   // }, [location]);
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container border={1} maxWidth="lg" className={classes.container}>
       <Card>
         <CardMedia
           className={classes.media}
@@ -50,21 +50,18 @@ const Blogpost = () => {
         />
       </Card>
       <CardContent className={classes.content}>
-        <Typography
-          style={{ wordWrap: "break-word" }}
-          variant="h3"
-          className={classes.title}
-        >
+        <Typography variant="h3" className={classes.title}>
           {post.title}
         </Typography>
         <div>
           {post.tags?.map((tag) => (
             <Chip
+              style={{
+                wordWrap: "break-word",
+              }}
               key={tag}
               className={classes.tags}
               variant="default"
-              color="secondary"
-              component="h2"
               size="small"
               label={`#${tag} `}
             />
@@ -87,7 +84,14 @@ const Blogpost = () => {
             </Typography>
           </Box>
         </div>
-        <Typography style={{ wordWrap: "break-word" }} variant="h5">
+        <Typography
+          style={{
+            wordWrap: "break-word",
+            fontSize: 20,
+            fontFamily: "'Open Sans', sans-serif",
+            paddingBottom: 50,
+          }}
+        >
           {post.message}
         </Typography>
       </CardContent>

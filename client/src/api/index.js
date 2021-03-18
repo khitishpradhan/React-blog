@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
-
-// const url = "https://blogging-kitzx.herokuapp.com/posts";
+const API = axios.create({
+  baseURL: process.env.REACT_APP_END_POINT,
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {

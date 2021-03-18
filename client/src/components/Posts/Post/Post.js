@@ -254,9 +254,9 @@ const Post = ({ post, setCurrentId }) => {
               <Box style={{ display: "flex", justifyContent: "space-between" }}>
                 <Tooltip
                   title="You're not logged in"
-                  disableHoverListener={user?.result}
-                  disableTouchListener={user?.result}
-                  disableFocusListener={user?.result}
+                  disableHoverListener={user?.result && true}
+                  disableTouchListener={user?.result && true}
+                  disableFocusListener={user?.result && true}
                 >
                   <span>
                     <Button

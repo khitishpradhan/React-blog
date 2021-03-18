@@ -6,13 +6,6 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 
-import { FaReact } from "react-icons/fa";
-import { FaNode } from "react-icons/fa";
-import { DiMongodb } from "react-icons/di";
-import { SiMaterialUi } from "react-icons/si";
-
-import { Link } from "react-router-dom";
-
 import Profile from "../../images/profile.jpg";
 
 const Footer = () => {
@@ -20,7 +13,6 @@ const Footer = () => {
   return (
     <Box color="primary" className={classes.footer}>
       <Box className={classes.nav}>
-        {/* <Typography className={classes.headings}>About Developer</Typography> */}
         <Box className={classes.avatarBox}>
           <Avatar alt="khitish" src={Profile} className={classes.avatar} />
         </Box>
@@ -66,7 +58,11 @@ const Footer = () => {
             >
               <LinkedInIcon color="action" fontSize="large" />
             </a>
-            <a target="_blank" rel="noopener noreferrer">
+            <a
+              target="_blank"
+              href="mailto: khitishp45@gmail.com"
+              rel="noopener noreferrer"
+            >
               <EmailIcon color="action" fontSize="large" />
             </a>
             <a

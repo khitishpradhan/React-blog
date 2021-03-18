@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   CardMedia,
@@ -14,17 +14,13 @@ import {
 import moment from "moment";
 
 import { getPost } from "../../../actions/post";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import useStyles from "./styles";
 
 const Blogpost = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  const location = useLocation();
-  // const [post, setPost] = useState();
-
-  const user = JSON.parse(localStorage.getItem("profile"));
 
   const { id } = useParams();
 
@@ -33,10 +29,6 @@ const Blogpost = () => {
   useEffect(() => {
     if (id && id !== "") dispatch(getPost(id));
   }, [id, dispatch]);
-
-  // useEffect(() => {
-  //   setPost(null);
-  // }, [location]);
 
   return (
     <Container border={1} maxWidth="lg" className={classes.container}>

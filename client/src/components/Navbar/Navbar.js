@@ -24,10 +24,6 @@ const Navbar = () => {
   const history = useHistory();
   const classes = useStyles();
 
-  console.log(location);
-
-  const path = location.pathname;
-
   const [anchorEl, setAnchorEl] = useState(null);
 
   const logout = () => {
@@ -39,7 +35,6 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    console.log(user);
     const token = user?.token;
 
     if (token) {
@@ -74,7 +69,12 @@ const Navbar = () => {
       color="inherit"
     >
       <Toolbar className={classes.tool}>
-        <img className={classes.homeButton} src={logo} onClick={handleHome} />
+        <img
+          alt="logo"
+          className={classes.homeButton}
+          src={logo}
+          onClick={handleHome}
+        />
         <Typography className={classes.heading} variant="h6"></Typography>
         {user && (
           <Button
